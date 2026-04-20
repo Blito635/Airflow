@@ -7,6 +7,8 @@ Pipeline de datos automatizado diseñado para la carga incremental de transaccio
 * **Orquestación:** Apache Airflow
 * **CI/CD:** Azure DevOps Pipelines
 
+## Video Explicativo prueba
+* https://www.loom.com/share/90efe9f1c621470ab2267cbb05842d34
 
 ## 🚀 Instalación
 1. Clona el repositorio:
