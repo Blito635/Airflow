@@ -8,7 +8,7 @@ Pipeline de datos automatizado diseñado para la carga incremental de transaccio
 * **CI/CD:** Azure DevOps Pipelines
 
 ## Video Explicativo prueba
-* https://www.loom.com/share/90efe9f1c621470ab2267cbb05842d34
+* https://www.loom.com/share/e741dbaff2ed4f0e9473a4cb16e6e9be
 
 ## 🚀 Instalación
 1. Clona el repositorio:
