@@ -10,8 +10,8 @@ def finance_etl_dag():
     def run_incremental_load():
         # 1. Obtenemos las conexiones de forma segura desde Airflow
         # 'source_db_conn' y 'target_db_conn' se configuran en Airflow UI
-        source_hook = PostgresHook(postgres_conn_id='source_db_conn')
-        target_hook = PostgresHook(postgres_conn_id='target_db_conn')
+        source_hook = PostgresHook(postgres_conn_id='SOURCE_DB_URL')
+        target_hook = PostgresHook(postgres_conn_id='TARGET_DB_URL')
         
         # 2. Obtenemos los engines (SQLAlchemy) desde los hooks
         source_engine = source_hook.get_sqlalchemy_engine()
