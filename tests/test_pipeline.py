@@ -40,7 +40,7 @@ def test_run_empty_source(pipeline):
     assert pipeline.load.called == False
 
 def test_validation_logic(pipeline):
-    # Fila 1: Correcta, Fila 2: Monto negativo
+    """Test 3: Fila 1: Correcta, Fila 2: Monto negativo"""
     df = pd.DataFrame([
         {'transaction_id': '1', 'source_system_id': 'src1', 'amount': 100.0, 'currency': 'USD', 'transaction_date': '2026-04-01 10:00:00'},
         {'transaction_id': '2', 'source_system_id': 'src1', 'amount': -50.0, 'currency': 'USD', 'transaction_date': '2026-04-01 10:00:00'}
