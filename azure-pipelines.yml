@@ -24,12 +24,12 @@ stages:
 
   # Etapa 2: Solo se ejecuta si el código está en la rama master
   - stage: Deploy
-    displayName: 'Despliegue a Producción'
-    dependsOn: Test # Solo corre si los tests pasaron
+    displayName: 'Despliegue'
+    dependsOn: Test
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     jobs:
       - job: DeployJob
         steps:
           - script: |
-              echo "Aquí iría tu lógica de despliegue (ej. aws cli, terraform, etc)"
+              echo "Lógica de despliegue (ej. aws cli, terraform, etc)"
             displayName: 'Ejecutar Despliegue'
