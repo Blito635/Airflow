@@ -32,5 +32,4 @@ stages:
         steps:
           - script: |
               echo "Aquí iría tu lógica de despliegue (ej. aws cli, terraform, etc)"
-              # Ejemplo: python deploy_script.py
             displayName: 'Ejecutar Despliegue'
