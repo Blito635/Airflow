@@ -1,15 +1,35 @@
 trigger:
-  - main
+  - master
+
+pr:
+  - master
 
 pool:
   name: Default
 
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.9'
+stages:
+  # Etapa 1: Siempre se ejecuta (Tanto en PRs como en Master)
+  - stage: Test
+    displayName: 'Validación de Código'
+    jobs:
+      - job: RunTests
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '3.9'
+          - script: |
+              pip install -r requirements.txt
+              pytest tests/ --doctest-modules --junitxml=junit/test-results.xml
+            displayName: 'Run Tests'
 
-- script: |
-    pip install -r requirements.txt
-    pytest tests/ --doctest-modules --junitxml=junit/test-results.xml
-  displayName: 'Run Tests'
+  # Etapa 2: Solo se ejecuta si el código está en la rama master
+  - stage: Deploy
+    displayName: 'Despliegue'
+    dependsOn: Test
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    jobs:
+      - job: DeployJob
+        steps:
+          - script: |
+              echo "Lógica de despliegue (ej. aws cli, terraform, etc)"
+            displayName: 'Ejecutar Despliegue'
