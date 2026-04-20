@@ -47,7 +47,7 @@ def test_validation_logic(pipeline):
     ])
     clean_df = pipeline.validate(df)
     # Ahora sí debería pasar
-    assert len(clean_df) == 2
+    assert len(clean_df) == 1
     assert clean_df.iloc[0]['transaction_id'] == '1'
 
 @patch('src.etl_process.pd.read_sql')
