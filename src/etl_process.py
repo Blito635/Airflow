@@ -36,4 +36,5 @@ class ETLPipeline:
         chunks = self.extract(last_timestamp)
         for chunk in chunks:
             clean_df = self.validate(chunk)
-            self.load(clean_df)
+            if not clean_df.empty:
+                self.load(clean_df)
